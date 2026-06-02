@@ -33,12 +33,13 @@ fetchBtn.addEventListener("click", async () => {
   fetchBtn.disabled = true;
 
   try {
-    const res = await fetch("https://www.youtube.com/youtubei/v1/player?key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8", {
+    const res = await fetch("https://www.youtube.com/youtubei/v1/player", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "X-YouTube-Client-Name": "3",
         "X-YouTube-Client-Version": "17.31.35",
+        "X-Origin": "https://www.youtube.com",
       },
       body: JSON.stringify({
         videoId: videoId,
@@ -47,6 +48,8 @@ fetchBtn.addEventListener("click", async () => {
             clientName: "ANDROID",
             clientVersion: "17.31.35",
             androidSdkVersion: 30,
+            hl: "en",
+            gl: "US",
           }
         }
       })
